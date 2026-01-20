@@ -1,4 +1,3 @@
-// DOM Elements
 const walletInput = document.getElementById('walletAddress');
 const checkButton = document.getElementById('checkButton');
 const resultsSection = document.getElementById('resultsSection');

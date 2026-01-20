@@ -1,0 +1,161 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRON CHECKER | Kali Linux Style</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Share+Tech+Mono&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://cryptologos.cc/logos/tron-trx-logo.png">
+</head>
+<body>
+    <div class="container">
+        <!-- Kali Linux Style Header -->
+        <header class="kali-header">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="terminal-btn close"></div>
+                        <div class="terminal-btn minimize"></div>
+                        <div class="terminal-btn maximize"></div>
+                    </div>
+                    <div class="terminal-title">root@kali:~</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-text">Initializing TRON CHECKER v2.0...</div>
+                    <div class="terminal-text">Loading security protocols...</div>
+                    <div class="terminal-text blinking">System Ready <span class="blink">_</span></div>
+                </div>
+            </div>
+            
+            <h1 class="main-title">
+                <span class="title-text">TRON CHECKER</span>
+                <span class="title-sub">TRC20 WALLET SECURITY SCAN</span>
+            </h1>
+            
+            <div class="tron-logo">
+                <img src="https://cryptologos.cc/logos/tron-trx-logo.png" alt="TRON Logo">
+                <span class="logo-text">TRON TRC20</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="scan-section">
+                <div class="input-container">
+                    <div class="input-label">
+                        <i class="fas fa-wallet"></i> ENTER WALLET ADDRESS
+                    </div>
+                    <input type="text" id="walletAddress" placeholder="TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" autocomplete="off">
+                    <div class="input-hint">
+                        <i class="fas fa-info-circle"></i> Enter a valid TRON wallet address starting with 'T'
+                    </div>
+                </div>
+                
+                <button id="checkButton" class="check-btn">
+                    <i class="fas fa-shield-alt"></i> CHECK SECURITY & BALANCE
+                </button>
+                
+                <div class="protection-level">
+                    <div class="protection-title">
+                        <i class="fas fa-lock"></i> SECURITY LEVEL: MAXIMUM
+                    </div>
+                    <div class="protection-bars">
+                        <div class="protection-bar active"></div>
+                        <div class="protection-bar active"></div>
+                        <div class="protection-bar active"></div>
+                        <div class="protection-bar active"></div>
+                        <div class="protection-bar active"></div>
+                    </div>>
+                </div>
+            </div>
+            
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section hidden">
+                <div class="results-header">
+                    <h2><i class="fas fa-search"></i> SCAN RESULTS</h2>
+                    <div class="scan-status" id="scanStatus">Scanning...</div>
+                </div>
+                
+                <div class="results-container">
+                    <div class="result-card">
+                        <div class="result-title">
+                            <i class="fas fa-coins"></i> BALANCE
+                        </div>
+                        <div class="result-value" id="balanceResult">0 TRX</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-title">
+                            <i class="fas fa-dollar-sign"></i> USD VALUE
+                        </div>
+                        <div class="result-value" id="usdValue">$0.00</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-title">
+                            <i class="fas fa-shield-alt"></i> SECURITY STATUS
+                        </div>
+                        <div class="result-value" id="securityStatus">Checking...</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-title">
+                            <i class="fas fa-network-wired"></i> NETWORK
+                        </div>
+                        <div class="result-value" id="networkInfo">TRON (TRC20)</div>
+                    </div>
+                </div>
+                
+                <div class="additional-info">
+                    <h3><i class="fas fa-chart-line"></i> TRANSACTION INFO</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Total Transactions:</span>
+                            <span class="info-value" id="totalTransactions">0</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Last Active:</span>
+                            <span class="info-value" id="lastActive">Unknown</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Address Type:</span>
+                            <span class="info-value" id="addressType">Standard</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scan-timestamp">
+                    <i class="far fa-clock"></i> Scan completed: <span id="scanTime">--:--:--</span>
+                </div>
+            </div>
+            
+            <!-- Loading Animation -->
+            <div id="loadingSection" class="loading-section hidden">
+                <div class="spinner"></div>
+                <div class="loading-text">Scanning TRON Blockchain...</div>
+                <div class="loading-details" id="loadingDetails">
+                    <div>Connecting to secure node...</div>
+                    <div>Validating address format...</div>
+                    <div>Querying TRONSCAN API...</div>
+                </div>
+            </div>
+            
+            <!-- Error Section -->
+            <div id="errorSection" class="error-section hidden">
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="error-message" id="errorMessage">Error message will appear here</div>
+                <button id="retryButton" class="retry-btn">
+                    <i class="fas fa-redo"></i> RETRY SCAN
+                </button>
+            </div>
+        </main>
+        
+        <footer class="kali-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-item">
+                        <i class="fas fa-terminal"></i> SYSTEM: TRON CHECKER v2.0
